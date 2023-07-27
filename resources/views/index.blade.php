@@ -34,21 +34,23 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($posts as $post)
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row">{{$post->id}}</th>
                     <td>
-                        <img src="https://picsum.photos/100" alt="">
+                        <img src="{{asset($post->image)}}" alt="" width="100%" height="70">
                     </td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet aspernatur, aut culpa cum cupiditate eligendi esse eveniet ex fugit id</td>
-                    <td>News</td>
-                    <td>02-05-2023</td>
+                    <td>{{$post->title}}</td>
+                    <td>{{$post->description}}</td>
+                    <td>{{$post->category_id}}</td>
+                    <td>{{date('d-m-y', strtotime($post->created_at))}}</td>
                     <td>
                         <a class="btn-sm btn-success">Show</a>
-                        <a class="btn-sm btn-primary">Edit</a>
+                        <a href="{{route('posts.edit', $post->id)}}" class="btn-sm btn-primary">Edit</a>
                         <a class="btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
