@@ -14,7 +14,7 @@
 
                     <div class="col-md-6 d-flex justify-content-end">
                         <a href="{{route('posts.create')}}" class="btn btn-success mx-1">Create</a>
-                        <a href="" class="btn btn-warning mx-1">Trashed</a>
+                        <a href="{{route('posts.trashed')}}" class="btn btn-warning mx-1">Trashed</a>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,12 @@
                     <td>
                         <a href="{{route('posts.show', $post->id)}}" class="btn-sm btn-success">Show</a>
                         <a href="{{route('posts.edit', $post->id)}}" class="btn-sm btn-primary">Edit</a>
-                        <a class="btn-sm btn-danger">Delete</a>
+{{--                        <a class="btn-sm btn-danger">Delete</a>--}}
+                        <form action="{{route('posts.destroy', $post->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn-sm btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

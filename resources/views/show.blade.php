@@ -13,7 +13,11 @@
                         </div>
 
                         <div class="col-md-6 d-flex justify-content-end">
-                            <a href="{{route('posts.destroy', $post->id)}}" class="btn btn-danger mx-1">Delete</a>
+                            <form action="{{route('posts.destroy', $post->id)}}">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
                             <a href="{{route('posts.edit', $post->id)}}" class="btn btn-warning mx-1">Edit</a>
                         </div>
                     </div>
