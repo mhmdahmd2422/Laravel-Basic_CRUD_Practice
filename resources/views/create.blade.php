@@ -18,7 +18,7 @@
                         </div>
 
                         <div class="col-md-6 d-flex justify-content-end">
-                            <a href="" class="btn btn-warning mx-1">Back</a>
+                            <a href="{{route('posts.index')}}" class="btn btn-warning mx-1">Back</a>
                         </div>
                     </div>
                 </div>

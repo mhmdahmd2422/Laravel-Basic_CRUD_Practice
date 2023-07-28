@@ -13,7 +13,7 @@
                         </div>
 
                         <div class="col-md-6 d-flex justify-content-end">
-                            <form action="{{route('posts.destroy', $post->id)}}">
+                            <form action="{{route('posts.destroy', $post->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Delete</button>

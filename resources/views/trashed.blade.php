@@ -13,8 +13,7 @@
                         </div>
 
                         <div class="col-md-6 d-flex justify-content-end">
-                            <a href="{{route('posts.create')}}" class="btn btn-success mx-1">Create</a>
-                            <a href="" class="btn btn-warning mx-1">Trashed</a>
+                            <a href="{{route('posts.index')}}" class="btn btn-warning mx-1">Back</a>
                         </div>
                     </div>
                 </div>
@@ -47,7 +46,7 @@
                             <td>
                                 <div class="d-flex">
                                     <a href="{{route('posts.restore', $post->id)}}" class="btn-sm btn-success">Restore</a>
-                                    <form action="{{route('posts.destroy', $post->id)}}" method="POST">
+                                    <form action="{{route('posts.force_delete', $post->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn-sm btn-danger">Delete</button>

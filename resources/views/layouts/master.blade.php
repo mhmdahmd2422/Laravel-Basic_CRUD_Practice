@@ -14,7 +14,7 @@
 <body>
 
 <nav class="navbar navbar-light bg-light p-2">
-    <a class="navbar-brand">Navbar</a>
+    <a class="navbar-brand">BLOGG-IN</a>
 </nav>
 
 <div class="container">
