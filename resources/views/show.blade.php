@@ -13,12 +13,13 @@
                         </div>
 
                         <div class="col-md-6 d-flex justify-content-end">
+                            <a href="{{route('posts.index')}}" class="btn btn-warning mx-1">Back</a>
                             <form action="{{route('posts.destroy', $post->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Delete</button>
                             </form>
-                            <a href="{{route('posts.edit', $post->id)}}" class="btn btn-warning mx-1">Edit</a>
+                            <a href="{{route('posts.edit', $post->id)}}" class="btn btn-success mx-1">Edit</a>
                         </div>
                     </div>
                 </div>
@@ -61,7 +62,7 @@
                     </tr>
                     <tr>
                         <td>Category</td>
-                        <td>{{$post->category_id}}</td>
+                        <td>{{$post->category->name}}</td>
                     </tr>
                     <tr>
                         <td>Publish Date</td>
