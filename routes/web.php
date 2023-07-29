@@ -23,3 +23,17 @@ Route::delete('posts/{id}/force-delete', [\App\Http\Controllers\PostController::
 
 Route::resource('posts',\App\Http\Controllers\PostController::class);
 
+Route::get('unavailable', function (){
+   return view('unavailable');
+})->name('unavailable');
+
+Route::group(['middleware' => 'authCheck2'], function (){
+    Route::get('dashboard', function (){
+        return view('dashboard');
+    });
+    Route::get('profile', function (){
+        return view('profile');
+    });
+});
+
+
