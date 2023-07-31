@@ -36,4 +36,46 @@ Route::group(['middleware' => 'authCheck2'], function (){
     });
 });
 
+Route::get('contact', function (){
+    $posts = \App\Models\Post::all();
+    return view('contact', compact('posts'));
+});
+
+Route::get('send-mail', function (){
+//    \Illuminate\Support\Facades\Mail::raw('this is an email from laravel', function ($message){
+//        $message->to('mhmdahmdzero@gmail.com')->subject('Laravel');
+//    });
+
+    \Illuminate\Support\Facades\Mail::send(new \App\Mail\OrderShipped());
+
+    dd('success');
+});
+
+Route::get('get-session', function (\Illuminate\Http\Request $request){
+//    $data = session()->all();
+    $data = $request->session()->all();
+//    $data = $request->session()->get('_token');
+
+    dd($data);
+});
+
+Route::get('save-session', function (\Illuminate\Http\Request $request){
+    $request->session()->put([
+        'user_status' => 'logged_in',
+        'test' => 'value',
+        'user_id' => '1234'
+        ]);
+    return redirect('get-session');
+});
+
+Route::get('flash-session', function (\Illuminate\Http\Request $request){
+    $request->session()->flash('test3', 'false');
+    return redirect('get-session');
+});
+
+Route::get('destroy-session', function (\Illuminate\Http\Request $request){
+    $request->session()->forget(['user_id', 'user_status']);
+    return redirect('get-session');
+});
+
 
