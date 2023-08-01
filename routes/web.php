@@ -78,4 +78,10 @@ Route::get('destroy-session', function (\Illuminate\Http\Request $request){
     return redirect('get-session');
 });
 
+Route::get('forget-cache', function (){
+    \Illuminate\Support\Facades\Cache::forget('posts');
+
+    dd('deleted cache');
+});
+
 
