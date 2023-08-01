@@ -14,7 +14,11 @@
 <body>
 
 <nav class="navbar navbar-light bg-light p-2">
-    <a class="navbar-brand">BLOGG-IN</a>
+    <a class="navbar-brand">THE BLOGGER</a>
+    <form action="{{route('logout')}}" method="post">
+        @csrf
+        <button type="submit" class="btn-sm btn-primary">Logout</button>
+    </form>
 </nav>
 
 <div class="container">
