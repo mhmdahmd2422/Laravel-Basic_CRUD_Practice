@@ -29,7 +29,8 @@ class PostPolicy
      */
     public function create(User $user): bool
     {
-        return $user->is_admin;
+//        return $user->is_admin;
+        return $user->role_id == 1 || $user->role_id == 2;
     }
 
     /**
@@ -37,7 +38,8 @@ class PostPolicy
      */
     public function update(User $user, Post $post): bool
     {
-        return $user->is_admin;
+//        return $user->is_admin;
+        return $user->role_id == 1 || $user->role_id == 2;
     }
 
     /**
@@ -45,7 +47,8 @@ class PostPolicy
      */
     public function delete(User $user, Post $post): bool
     {
-        return $user->is_admin;
+//        return $user->is_admin;
+        return $user->role_id == 1;
     }
 
     /**
