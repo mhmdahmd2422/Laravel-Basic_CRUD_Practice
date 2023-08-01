@@ -103,3 +103,10 @@ Route::group(['middleware' => 'auth'], function (){
         return auth()->user();
     });
 });
+
+Route::get('send-mail-job', function (){
+
+    \App\Jobs\SendMail::dispatch();
+
+    dd('Email Sent!');
+});
