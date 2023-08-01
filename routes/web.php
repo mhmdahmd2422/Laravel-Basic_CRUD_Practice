@@ -110,3 +110,10 @@ Route::get('send-mail-job', function (){
 
     dd('Email Sent!');
 });
+
+Route::get('user-register', function (){
+    $email = 'user@gmail.com';
+   event(new \App\Events\UserRegistered($email));
+
+   dd('Welcome email has been sent!');
+});
