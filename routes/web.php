@@ -117,3 +117,9 @@ Route::get('user-register', function (){
 
    dd('Welcome email has been sent!');
 });
+
+Route::get('greeting/{locale}', function ($locale){
+    \Illuminate\Support\Facades\App::setLocale($locale);
+
+   return view('greeting');
+})->name('greeting');
